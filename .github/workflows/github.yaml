@@ -4,11 +4,12 @@ name: local-terraform CI
     branches: ["release","main" ] 
   pull_request:
     branches: [ "release","main" ] 
-permissions:
-  contents: write
-  security-events: write
-  actions: read
+
 jobs:
   tf-ci:
     name: terraform analysis
+    permissions:
+      contents: write
+      security-events: write
+      actions: read
     uses: jomcyg/gcp-github-devsecops-workflows/.github/worflows/tf-ci.yml@jmc-dev-ghworkflow

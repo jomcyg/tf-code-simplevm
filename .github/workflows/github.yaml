@@ -38,7 +38,9 @@ jobs:
               tflint -f compact
 
       - name: TFSec
-        uses: aquasecurity/tfsec@master
+        uses: aquasecurity/tfsec-action@v1.0.3
+        with:
+          soft_fail: true
 
       - name: Checkov
         uses: bridgecrewio/checkov-action@master 

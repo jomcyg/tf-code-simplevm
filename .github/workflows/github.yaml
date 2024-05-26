@@ -12,5 +12,5 @@ jobs:
       contents: write
       security-events: write
       actions: read
-    uses: jomcyg/gcp-github-devsecops-workflows/.github/worflows/tf-ci.yml@jmc-dev-ghworkflow
+    uses: jomcyg/gcp-github-devsecops-workflows/.github/workflows/tf-ci.yml@jmc-dev-ghworkflow
     secrets: inherit

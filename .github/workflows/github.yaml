@@ -24,7 +24,9 @@ jobs:
 
       - name: Terraform Format and Validate
         id: fmtval
-        run: terraform fmt -check && terraform validate
+        run: |
+             terrafrom init 
+             terraform fmt -check && terraform validate
 
 
       - name: Setup TFLint

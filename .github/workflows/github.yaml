@@ -26,7 +26,7 @@ jobs:
         run: terraform fmt -check && terraform validate
 
       - name: TFLint
-        uses: terraform-linters/tflint-bundle@v1.12.1
+        uses: terraform-linters/tflint-bundle@v0.51.0
 
       - name: TFSec
         uses: aquasecurity/tfsec@master

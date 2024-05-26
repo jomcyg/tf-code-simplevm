@@ -25,7 +25,7 @@ jobs:
       - name: Terraform Format and Validate
         id: fmtval
         run: |
-             terrafrom init 
+             terraform init 
              terraform fmt -check && terraform validate
 
 

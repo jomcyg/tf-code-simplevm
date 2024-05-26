@@ -42,7 +42,7 @@ jobs:
           sarif_file: tfsec.sarif
 
       - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v2.17.3
         with:
           # Path to SARIF file relative to the root of the repository
           sarif_file: tfsec.sarif
@@ -63,7 +63,7 @@ jobs:
       # - name: Upload SARIF file
       #   uses: github/codeql-action/upload-sarif@v2
       - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v2.17.3
         with:
           # Path to SARIF file relative to the root of the repository
           sarif_file: checkov-results.sarif

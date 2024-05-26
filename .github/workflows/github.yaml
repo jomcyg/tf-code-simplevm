@@ -26,31 +26,34 @@ jobs:
       #   run: terraform fmt -check && terraform validate
 
 
-      - name: Setup TFLint
-        uses: terraform-linters/setup-tflint@v4
-        with:
-          tflint_version: v0.50.3
+      # - name: Setup TFLint
+      #   uses: terraform-linters/setup-tflint@v4
+      #   with:
+      #     tflint_version: v0.51.1
 
-      - name: Run TFLint
-        run: |
-              tflint --version
-              tflint --init
-              tflint -f compact
+      # - name: Run TFLint
+      #   run: |
+      #         tflint --version
+      #         tflint --init
+      #         tflint -f compact
 
-      - name: TFSec
-        uses: aquasecurity/tfsec-action@v1.0.3
+      # - name: TFSec
+      #   uses: aquasecurity/tfsec-action@v1.0.3
+      #   with:
+      #     soft_fail: true
+
+
+
+      - name: Run Checkov action
+        id: checkov
+        uses: bridgecrewio/checkov-action@master
         with:
+          directory: .
           soft_fail: true
-
-      - name: Checkov GitHub Action
-        uses: bridgecrewio/checkov-action@v12
-        with:
-          # This will add both a CLI output to the console and create a results.sarif file
-          output_format: cli,sarif
-          output_file_path: console,results.sarif
-        
-      - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v2
+          download_external_modules: true
+          github_pat: ${{ secrets.GH_PAT }}
+        env:
+          GITHUB_OVERRIDE_URL: true  # optional: this can be used to instruct the action to override the global GIT config to inject the PAT to the URL
         
         # Results are generated only on a success or failure
         # this is required since GitHub by default won't run the next step

@@ -3,7 +3,7 @@ name: local-terraform CI
   push:
     branches: ["release","main" ] 
   pull_request:
-    branches: [ "release","master" ] 
+    branches: [ "release","main" ] 
 permissions:
   contents: write
   security-events: write

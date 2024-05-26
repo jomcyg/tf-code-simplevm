@@ -82,7 +82,7 @@ jobs:
           #verbose: true
           sarif_upload: true
           #non_recursive:
-          #iac_dir:
+          iac_dir: .
           #policy_path:
           #skip_rules:
           #config_path:

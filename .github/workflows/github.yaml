@@ -8,13 +8,13 @@ name: local-terraform CI
 jobs:
   tf-ci:
     name: terraform analysis
-    permissions:
-      contents: write
-      security-events: write
-      id-token: write
-      packages: write
-      actions: read
-    uses: jomcyg/gcp-github-devsecops-workflows/.github/workflows/tf-ci.yml@jmc-dev-ghworkflow
-    secrets: inherit
+    # permissions:
+    #   contents: write
+    #   security-events: write
+    #   id-token: write
+    #   packages: write
+    #   actions: read
+    # uses: jomcyg/gcp-github-devsecops-workflows/.github/workflows/tf-ci.yml@jmc-dev-ghworkflow
+    # secrets: inherit
 
 

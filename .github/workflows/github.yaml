@@ -56,7 +56,7 @@ jobs:
       - name: Terraform init-plan-vet
         id: fmtval
         run: |
-              pwd && ls && cd vet-policy-library && ls
+              pwd && ls
               gcloud version
               terraform init
               terraform plan -out=test.tfplan

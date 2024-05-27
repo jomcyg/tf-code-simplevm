@@ -64,4 +64,3 @@ jobs:
               ls
               gcloud beta terraform vet ./tfplan.json --policy-library=./vet-policy-library --format=yaml
 
-

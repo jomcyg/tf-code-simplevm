@@ -18,7 +18,7 @@ provider "google-beta" {
 
 }
 
-provider "google-beta" {
+provider "google" {
   # Configuration options
 
 }

@@ -28,6 +28,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Checkout vet-policy-library
+        uses: actions/checkout@v3
+        with:
+          repository: https://github.com/jomcyg/vet-policy-library  # Replace with the actual URL if needed
+          path: vet-policy-library  # Optional: Specify a local directory for the checkout
       - id: 'auth'
         name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v1'
@@ -51,10 +56,12 @@ jobs:
       - name: Terraform init-plan-vet
         id: fmtval
         run: |
+              pwd && ls
               gcloud version
               terraform init
               terraform plan -out=test.tfplan
               terraform show -json ./test.tfplan > ./tfplan.json
-              gcloud beta terraform vet tfplan.json --policy-library=. --format=json
+              gcloud beta terraform vet tfplan.json --policy-library=./vet-policy-library/policies
+              /nonprod-constraints/ --format=json
 
 

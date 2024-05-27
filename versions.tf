@@ -13,12 +13,12 @@ terraform {
   }
 }
 
-provider "google-beta" {
-  # Configuration options
+# provider "google-beta" {
+#   # Configuration options
 
-}
+# }
 
-provider "google" {
-  # Configuration options
+# provider "google" {
+#   # Configuration options
 
-}
+# }

@@ -10,6 +10,6 @@ terraform {
   #     source  = "hashicorp/google-beta"
   #     version = "~> 5.30" # Align with google provider version (approximately)
   #   }
-  }
+  # }
 }
 

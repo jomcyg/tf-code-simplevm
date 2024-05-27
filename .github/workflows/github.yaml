@@ -33,6 +33,7 @@ jobs:
         with:
           repository: jomcyg/vet-policy-library  # Replace with the actual URL if needed
           path: vet-policy-library  # Optional: Specify a local directory for the checkout
+          clean: true
       - id: 'auth'
         name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v1'

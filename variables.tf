@@ -30,7 +30,7 @@ variable "region" {
 variable "zone" {
   description = "The GCP zone to create resources in"
   type        = string
-  default     = null
+  default     = "asia-south1-a"
 }
 
 variable "subnetwork" {

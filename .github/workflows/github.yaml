@@ -6,15 +6,40 @@ name: local-terraform CI
     branches: [ "release","main" ] 
 
 jobs:
-  tf-ci:
-    name: terraform analysis
-    # permissions:
-    #   contents: write
-    #   security-events: write
-    #   id-token: write
-    #   packages: write
-    #   actions: read
-    # uses: jomcyg/gcp-github-devsecops-workflows/.github/workflows/tf-ci.yml@jmc-dev-ghworkflow
-    # secrets: inherit
+  # tf-ci:
+  #   name: terraform analysis
+  #   permissions:
+  #     contents: write
+  #     security-events: write
+  #     id-token: write
+  #     packages: write
+  #     actions: read
+  #   uses: jomcyg/gcp-github-devsecops-workflows/.github/workflows/tf-ci.yml@jmc-dev-ghworkflow
+  #   secrets: inherit
+  tf-vet:
+    name: tf-vet
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3.1.1
+        with:
+          terraform_version: 1.8.4
+
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v2'. #@v2.1.0
+        with:
+          version: '>= 363.0.0'
+#/vet-policies/constraints
+    - name: 'Use gcloud CLI'
+      run: 'gcloud info'
+      - name: Terraform init-plan-vet
+        id: fmtval
+        run: |
+             terraform init
+             terraform plan -out=test.tfplan
+             terraform show -json ./test.tfplan > ./tfplan.json
+             gcloud beta terraform vet tfplan.json --policy-library=. --format=json
 
 

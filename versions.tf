@@ -15,12 +15,10 @@ terraform {
 
 provider "google-beta" {
   # Configuration options
-    source = "hashicorp/google"
-    version = "5.30.0"
+
 }
 
 provider "google-beta" {
   # Configuration options
-    source  = "hashicorp/google-beta"
-    version = "~> 5.30" # Align with google provider version (approximately)
+
 }

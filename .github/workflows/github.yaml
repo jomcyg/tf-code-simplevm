@@ -31,7 +31,7 @@ jobs:
       - name: Checkout vet-policy-library
         uses: actions/checkout@v3
         with:
-          repository: https://github.com/jomcyg/vet-policy-library  # Replace with the actual URL if needed
+          repository: jomcyg/vet-policy-library  # Replace with the actual URL if needed
           path: vet-policy-library  # Optional: Specify a local directory for the checkout
       - id: 'auth'
         name: 'Authenticate to Google Cloud'

@@ -20,7 +20,7 @@ module "bucket" {
 
   name       = "${var.project_id}-bucket"
   project_id = var.project_id
-  location   = "us"
+  location   = var.location // "in","us","ASIA"
 
   lifecycle_rules = [{
     action = {

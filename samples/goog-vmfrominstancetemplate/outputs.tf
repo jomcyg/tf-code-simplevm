@@ -1,12 +1,5 @@
-terraform {
-  required_version = ">= 1.0"
-
-
-}
-
-
 /**
- * Copyright 2019 Google LLC
+ * Copyright 2018 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,30 +14,12 @@ terraform {
  * limitations under the License.
  */
 
-terraform {
-  required_version = ">= 0.13"
-  required_providers {
-    google = {
-      source = "hashicorp/google"
-    }
-
-  #   # google = {
-  #   #   source = "hashicorp/google"
-  #   #   version = "5.30.0"
-  #   # }
-  #   # google-beta = {
-  #   #   source  = "hashicorp/google-beta"
-  #   #   version = "~> 5.30" # Align with google provider version (approximately)
-
-  }
+output "instances_self_links" {
+  description = "List of self-links for compute instances"
+  value       = module.compute_instance.instances_self_links
 }
 
-provider "google-beta" {
-  # Configuration options
-
-}
-
-provider "google" {
-  # Configuration options
-
+output "available_zones" {
+  description = "List of available zones in region"
+  value       = module.compute_instance.available_zones
 }

@@ -64,4 +64,5 @@ jobs:
               terraform show -json ./test.tfplan > ./tfplan.json
               ls
               gcloud beta terraform vet tfplan.json --policy-library=./vet-policy-library --format=json 
+              echo "done"
 
